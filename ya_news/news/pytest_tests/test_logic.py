@@ -2,13 +2,11 @@ from http import HTTPStatus
 
 import pytest
 from pytest_django.asserts import assertFormError, assertRedirects
+from django.urls import reverse
 
 from news.forms import WARNING, BAD_WORDS
 from conftest import NEW_COMMENT_TEXT, COMMENT_TEXT, PK
-from django.urls import reverse
-
 from news.models import Comment
-
 
 pytestmark = pytest.mark.django_db
 

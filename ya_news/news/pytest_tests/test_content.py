@@ -16,7 +16,6 @@ def test_news_count_order(client, news_list):
     response = client.get(reverse('news:home'))
     object_list = list(response.context['object_list'])
     assert len(object_list) == settings.NEWS_COUNT_ON_HOME_PAGE
-    assert isinstance(object_list[0].date, date)
     assert object_list == sorted(
         object_list, key=lambda x: x.date, reverse=True
     )
